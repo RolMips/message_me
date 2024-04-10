@@ -1,17 +1,25 @@
-<div class="ui segment inverted large menu">
-  <div class="item">
-   <i class="orange big rocketchat icon"></i>
-  </div>
-  <div class="left menu">
-    <%= link_to "Chat Room", root_path, class: "item" %>
-  </div>
+<div class="ui segment inverted menu">
+  <% if logged_in? %>
+    <div class="left menu">
+      <%= link_to '<i class="rocketchat icon"></i> Chat Room'.html_safe, root_path, class: "ui primary button" %>
+    </div>
+  <% end %>
   <div class="right menu">
-    <div class="ui dropdown item">
-      Account <i class="dropdown icon"></i>
-      <div class="menu">
-        <%= link_to "Log in", login_path, class: "item" %>
-        <a class="item">Sign up</a>
-        <a class="item">Log out</a>
+    <div class="ui primary buttons">
+      <% if logged_in? %>
+         <div class="ui button"><%= current_user.username %></div>
+      <% else %>
+        <div class="ui button">Account</div>
+      <% end %>
+      <div class="ui floating dropdown icon button">
+        <i class="dropdown icon"></i>
+        <div class="menu">
+          <% if logged_in? %>
+            <%= link_to '<i class="sign-out icon"></i> Logout'.html_safe, logout_path, class: "item", method: :delete %>
+          <% else %>
+            <%= link_to '<i class="sign-in icon"></i> Login'.html_safe, login_path, class: "item" %>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>

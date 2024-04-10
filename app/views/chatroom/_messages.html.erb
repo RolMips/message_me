@@ -1,5 +1,5 @@
-<% @messages.each do |message| %> 
-    <div class="ui feed large">
-        <div class="ui orange image large label"><i class=" user outline icon"></i><%= message.user.username %></div> <%= message.body %>
+<% @messages.each do |message| %>
+    <div class="ui feed">
+        <div class="ui orange image label"><i class=" user outline icon"></i><%= message.user.username %></div> <%= message.body %>
     </div>
 <% end %>

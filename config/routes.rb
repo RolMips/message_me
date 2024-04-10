@@ -1,9 +1,8 @@
-Rails.application.routes.draw do
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+# frozen_string_literal: true
 
-  # Defines the root path route ("/")
-  # root "articles#index"
+Rails.application.routes.draw do
   root to: 'chatroom#index'
   get 'login', to: 'sessions#new'
-
+  post 'login', to: 'sessions#create'
+  get 'logout', to: 'sessions#destroy'
 end
