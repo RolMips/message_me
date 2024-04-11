@@ -9,12 +9,14 @@
         <%= render 'messages' %>
       </div>
       <div class="extra content">
-        <div class="field">
-          <div class="ui fluid icon input">
-            <input type="text" placeholder="Enter a message..." autocomplete="on">
-            <i class="bordered inverted orange edit icon"></i>
+        <%= form_for(@message, html: {class: "ui form", role: "form"}, url: message_path) do |f| %>
+          <div class="field">
+            <div class="ui fluid icon input">
+              <%= f.text_field :body, placeholder: "Enter a message...", autocomplete: "on" %>
+              <%= f.button '<i class="orange large fitted edit icon"></i>'.html_safe, class: "ui basic icon button" %>
+            </div>
           </div>
-        </div>
+        <% end %>
       </div>
     </div>
   </div>

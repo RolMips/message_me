@@ -62,6 +62,7 @@ group :development do
   # mini view framework for console
   gem 'hirb'
 
+  gem 'pry'
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
   # gem "rack-mini-profiler"
 
