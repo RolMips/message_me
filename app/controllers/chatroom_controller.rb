@@ -5,6 +5,7 @@ class ChatroomController < ApplicationController
 
   def index
     @message = Message.new
-    @messages = Message.all
+    @messages = Message.created_on(Time.zone.today)
+    @users = User.all
   end
 end

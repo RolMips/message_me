@@ -5,5 +5,14 @@
 }
 
 .chatbox {
+    height: 510px;
+}
+
+#messages {
     height: 450px;
+    overflow: auto;
+}
+
+#message_button {
+    display: none;
 }

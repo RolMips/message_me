@@ -5,15 +5,15 @@
 <div class="ui grid fluid container">
   <div class="twelve wide column">
     <div class="ui fluid card chatbox">
-      <div class="content">
-        <%= render 'messages' %>
+      <div class="content" id="messages">
+        <%= render @messages %>
       </div>
       <div class="extra content">
-        <%= form_for(@message, html: {class: "ui form", role: "form"}, url: message_path) do |f| %>
+        <%= form_for(@message, html: {class: "ui form", role: "form"}, url: message_path, remote: true) do |f| %>
           <div class="field">
             <div class="ui fluid icon input">
               <%= f.text_field :body, placeholder: "Enter a message...", autocomplete: "on" %>
-              <%= f.button '<i class="orange large fitted edit icon"></i>'.html_safe, class: "ui basic icon button" %>
+              <%= f.button '<i class="orange large fitted edit icon"></i>'.html_safe, class: "ui basic icon button", id: "message_button" %>
             </div>
           </div>
         <% end %>
@@ -24,15 +24,7 @@
     <div class="ui fluid card chatbox">
       <div class="content">
         <div class="ui inverted vertical fluid menu">
-          <a class="item">
-            Home
-          </a>
-          <a class="item">
-            Messages
-          </a>
-          <a class="item">
-            Friends
-          </a>
+          <%= render @users %>
         </div>
       </div>
     </div>
