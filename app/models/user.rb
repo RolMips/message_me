@@ -6,4 +6,7 @@ class User < ApplicationRecord
                         length: { minimum: 3, maximum: 15 }
   has_many :messages, dependent: :destroy
   has_secure_password
+
+  # Exemple : online
+  scope :online, -> { where(online: true).order(username: :asc) }
 end

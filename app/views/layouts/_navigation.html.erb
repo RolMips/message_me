@@ -1,12 +1,12 @@
 <div class="ui segment inverted menu">
-  <% if logged_in? %>
+  <% if user_online? %>
     <div class="left menu">
       <%= link_to '<i class="rocketchat icon"></i> Chat Room'.html_safe, root_path, class: "ui primary button" %>
     </div>
   <% end %>
   <div class="right menu">
     <div class="ui primary buttons">
-      <% if logged_in? %>
+      <% if user_online? %>
          <div class="ui button"><%= current_user.username %></div>
       <% else %>
         <div class="ui button">Account</div>
@@ -14,7 +14,7 @@
       <div class="ui floating dropdown icon button">
         <i class="dropdown icon"></i>
         <div class="menu">
-          <% if logged_in? %>
+          <% if user_online? %>
             <%= link_to '<i class="sign-out icon"></i> Logout'.html_safe, logout_path, class: "item", method: :delete %>
           <% else %>
             <%= link_to '<i class="sign-in icon"></i> Login'.html_safe, login_path, class: "item" %>
